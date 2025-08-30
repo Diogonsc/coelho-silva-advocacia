@@ -101,7 +101,7 @@
   }
   
   .card-service {
-    @apply bg-gradient-to-br from-card to-accent/30 border border-border/30 hover:border-primary/20 transition-all duration-300 group;
+    @apply bg-gradient-to-br from-card to-accent/30 border border-border/30 hover:border-primary/20 transition-all duration-300;
   }
   
   /* Gradients */
