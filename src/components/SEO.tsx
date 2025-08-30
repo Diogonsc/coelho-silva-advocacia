@@ -94,7 +94,7 @@ const SEO = ({
         "postalCode": "23550-000",
         "addressCountry": "BR"
       },
-      "telephone": "+55-21-99999-9999",
+      "telephone": "+55-21-99805-5549",
       "email": "contato@coelhosilva.adv.br",
       "openingHours": "Mo-Fr 08:00-18:00",
       "priceRange": "$$",

@@ -10,6 +10,6 @@ export function openWhatsApp(message?: string) {
   const defaultMessage = 'Olá! Preciso de atendimento jurídico. Pode me ajudar?';
   const finalMessage = message || defaultMessage;
   const encodedMessage = encodeURIComponent(finalMessage);
-  // Formato correto para número brasileiro: 5521982149149 (sem hífen e sem parênteses)
-  window.open(`https://wa.me/5521982149149?text=${encodedMessage}`, '_blank');
+  // Formato correto para número brasileiro: 5521998055549 (sem hífen e sem parênteses)
+  window.open(`https://wa.me/5521998055549?text=${encodedMessage}`, '_blank');
 }

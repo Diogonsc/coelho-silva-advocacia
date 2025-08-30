@@ -1,5 +1,5 @@
 import { Button } from '@/components/ui/button';
-import { Phone, MessageCircle, Calendar, Shield, Award, Clock } from 'lucide-react';
+import { MessageCircle, Calendar, Shield, Award, Clock } from 'lucide-react';
 import heroImage from '@/assets/hero-law-office.jpg';
 import ImageWithFallback from '@/components/ui/image-with-fallback';
 
@@ -12,8 +12,8 @@ const Hero = () => {
   };
 
   const openWhatsApp = () => {
-    window.open('https://wa.me/5521999999999?text=Olá, gostaria de agendar uma consulta.', '_blank');
-  };
+  window.open('https://wa.me/5521998055549?text=Olá, gostaria de agendar uma consulta.', '_blank');
+};
 
   const trustIndicators = [
     { icon: Shield, text: 'Atendimento 24h', delay: '0.1s' },
@@ -22,7 +22,7 @@ const Hero = () => {
   ];
 
   return (
-    <section id="hero" className="relative min-h-screen flex items-center justify-center overflow-hidden">
+    <section id="hero" className="relative min-h-screen flex items-center justify-center overflow-hidde">
       {/* Background Image with Enhanced Overlay */}
       <div className="absolute inset-0 z-0">
         <ImageWithFallback
@@ -35,7 +35,7 @@ const Hero = () => {
       </div>
 
       {/* Content */}
-      <div className="relative z-10 container mx-auto px-4 text-center text-white">
+      <div className="relative z-10 container mx-auto px-4 text-center text-white ">
         <div className="max-w-5xl mx-auto">
           {/* Logo/Brand */}
           <div className="mb-8 md:mb-12 animate-fade-in">
@@ -66,7 +66,7 @@ const Hero = () => {
           <div className="flex flex-col sm:flex-row gap-4 md:gap-6 justify-center items-center mb-12 md:mb-16 px-4 md:px-0" style={{ animationDelay: '0.4s' }}>
             <Button
               onClick={openWhatsApp}
-              className="btn-whatsapp px-6 md:px-10 py-4 md:py-5 text-base md:text-lg font-semibold w-full sm:w-auto min-w-64 md:min-w-72"
+              className="btn-whatsapp px-6 md:px-10 py-6 md:py-6 text-base md:text-lg font-semibold w-full sm:w-auto min-w-64 md:min-w-72"
             >
               <MessageCircle className="mr-2 md:mr-3 h-5 w-5 md:h-6 md:w-6 group-hover:scale-110 transition-transform" />
               Fale Agora via WhatsApp
@@ -75,7 +75,7 @@ const Hero = () => {
             <Button
               onClick={() => scrollToSection('contato')}
               variant="outline"
-              className="btn-outline-elegant px-6 md:px-10 py-4 md:py-5 text-base md:text-lg font-semibold w-full sm:w-auto min-w-64 md:min-w-72 border-white text-primary hover:bg-white hover:text-primary"
+              className="btn-outline-elegant px-6 md:px-10 py-6 md:py-6 text-base md:text-lg font-semibold w-full sm:w-auto min-w-64 md:min-w-72 border-white text-primary hover:bg-white hover:text-primary"
             >
               <Calendar className="mr-2 md:mr-3 h-5 w-5 md:h-6 md:w-6 group-hover:scale-110 transition-transform" />
               Agende uma Consulta

@@ -100,7 +100,7 @@ const Team = () => {
       specializations: ["Crimes contra a Pessoa", "Crimes contra o Patrimônio", "Direito Penal"],
       achievements: ["500+ casos defendidos", "98% de sucesso", "Especialista em recursos"],
       contact: {
-        phone: "(21) 99999-9999",
+        phone: "(21) 99805-5549",
         email: "felipe@coelhosilva.adv.br",
         linkedin: "https://linkedin.com/in/felipe-santos",
         instagram: "https://instagram.com/felipe.santos.adv"
@@ -379,8 +379,8 @@ const Team = () => {
               </p>
               <div className="flex flex-col sm:flex-row gap-4 justify-center">
                 <Button
-                  onClick={() => window.open('https://wa.me/5521999999999?text=Olá, gostaria de agendar uma consulta com a equipe.', '_blank')}
-                  className="btn-whatsapp"
+                  onClick={() => window.open('https://wa.me/5521998055549?text=Olá, gostaria de agendar uma consulta com a equipe.', '_blank')}
+                  className="btn-whatsapp py-6"
                 >
                   <MessageSquare className="mr-2 h-5 w-5" />
                   Agendar Consulta
@@ -388,7 +388,7 @@ const Team = () => {
                 <Button
                   onClick={() => document.getElementById('contato')?.scrollIntoView({ behavior: 'smooth' })}
                   variant="outline"
-                  className="btn-outline-elegant"
+                  className="btn-outline-elegant py-6"
                 >
                   <Phone className="mr-2 h-5 w-5" />
                   Falar Conosco

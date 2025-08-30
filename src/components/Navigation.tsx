@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { Menu, Phone } from 'lucide-react';
+import { Menu, Phone, ChevronRight, Clock, Mail } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Sheet, SheetContent, SheetTrigger } from '@/components/ui/sheet';
 import logotipo from '@/assets/logotipo.jpg';
@@ -28,16 +28,16 @@ const Navigation = () => {
   };
 
   const menuItems = [
-    { id: 'sobre', label: 'Sobre' },
-    { id: 'areas', label: 'Áreas de Atuação' },
-    { id: 'diferenciais', label: 'Diferenciais' },
-    { id: 'equipe', label: 'Equipe' },
-    { id: 'faq', label: 'FAQ' },
-    { id: 'contato', label: 'Contato' },
+    { id: 'sobre', label: 'Sobre', description: 'Conheça nossa história e valores' },
+    { id: 'areas', label: 'Áreas de Atuação', description: 'Especialidades jurídicas' },
+    { id: 'diferenciais', label: 'Diferenciais', description: 'O que nos torna únicos' },
+    { id: 'equipe', label: 'Equipe', description: 'Advogados especializados' },
+    { id: 'faq', label: 'FAQ', description: 'Tire suas dúvidas' },
+    { id: 'contato', label: 'Contato', description: 'Entre em contato conosco' },
   ];
 
   const openWhatsApp = () => {
-    window.open('https://wa.me/5521999999999?text=Olá, gostaria de agendar uma consulta gratuita.', '_blank');
+    window.open('https://wa.me/5521998055549?text=Olá, gostaria de agendar uma consulta gratuita.', '_blank');
   };
 
   return (
@@ -100,7 +100,7 @@ const Navigation = () => {
               aria-label="Abrir WhatsApp"
             >
               <Phone className="h-4 w-4 mr-2" />
-              (21) 99999-9999
+              (21) 99805-5549
             </Button>
             <Button
               onClick={() => scrollToSection('contato')}
@@ -118,67 +118,112 @@ const Navigation = () => {
                 <Button
                   variant="ghost"
                   size="sm"
-                  className="text-foreground"
+                  className="text-foreground hover:text-primary hover:bg-primary/10 transition-all duration-200"
                   aria-label="Abrir menu de navegação"
                 >
                   <Menu className="h-6 w-6" />
                 </Button>
               </SheetTrigger>
-              <SheetContent side="right" className="w-full sm:w-[400px] p-0 bg-background/95 backdrop-blur-md">
+              <SheetContent 
+                side="right" 
+                className="w-full sm:w-[400px] p-0 mobile-menu-backdrop border-l border-border/30"
+              >
                 <div className="flex flex-col h-full">
                   {/* Header do menu mobile */}
-                  <div className="flex items-center p-6 border-b border-border/50">
+                  <div className="flex items-center p-6 border-b border-border/20 mobile-menu-header">
                     <div className="flex items-center gap-3">
-                      <img 
-                        src={logotipo} 
-                        alt="Coelho & Silva Advocacia" 
-                        className="h-8 w-8 object-cover rounded-full"
-                      />
+                      <div className="relative">
+                        <ImageWithFallback 
+                          src={logotipo} 
+                          alt="Coelho & Silva Advocacia" 
+                          className="h-10 w-10 object-cover rounded-full ring-2 ring-primary/20"
+                        />
+                        <div className="absolute -bottom-1 -right-1 h-4 w-4 bg-primary rounded-full border-2 border-background"></div>
+                      </div>
                       <div className="flex flex-col">
                         <span className="text-lg font-bold text-foreground">Coelho & Silva</span>
-                        <span className="text-xs font-normal text-muted-foreground">
+                        <span className="text-xs font-medium text-primary">
                           Advocacia Criminal
                         </span>
                       </div>
                     </div>
                   </div>
 
-                  {/* Menu items */}
-                  <div className="flex-1 p-6">
-                    <div className="space-y-2">
+                  {/* Menu items com scroll */}
+                  <div className="flex-1 overflow-y-auto mobile-menu-scroll">
+                    <div className="p-6 space-y-2">
                       {menuItems.map((item) => (
                         <button
                           key={item.id}
                           onClick={() => scrollToSection(item.id)}
-                          className="text-foreground hover:text-primary block w-full text-left py-4 px-4 text-lg font-medium transition-colors rounded-lg hover:bg-primary/5"
+                          className="mobile-menu-item group w-full text-left p-4 rounded-xl transition-all duration-300 hover:bg-primary/5 hover:shadow-md border border-transparent hover:border-primary/20"
                           aria-label={`Ir para seção ${item.label}`}
                         >
-                          {item.label}
+                          <div className="flex items-center justify-between">
+                            <div className="flex-1">
+                              <h3 className="text-lg font-semibold text-foreground group-hover:text-primary transition-colors">
+                                {item.label}
+                              </h3>
+                              <p className="text-sm text-muted-foreground mt-1">
+                                {item.description}
+                              </p>
+                            </div>
+                            <ChevronRight className="h-5 w-5 text-muted-foreground group-hover:text-primary group-hover:translate-x-1 transition-all duration-300" />
+                          </div>
                         </button>
                       ))}
                     </div>
                   </div>
 
-                  {/* Contact Info */}
-                  <div className="p-6 border-t border-border/50 space-y-4">
-                    <div className="flex items-center gap-3 p-3 rounded-lg bg-primary/5">
-                      <Phone className="h-5 w-5 text-primary" />
-                      <div>
-                        <p className="font-semibold text-foreground">(21) 99999-9999</p>
-                        <p className="text-sm text-muted-foreground">Atendimento 24h</p>
+                  {/* Informações de contato e CTA */}
+                  <div className="p-6 border-t border-border/20 mobile-menu-footer space-y-4">
+                    {/* Informações de contato */}
+                    <div className="space-y-3">
+                      <div className="flex items-center gap-3 p-3 rounded-lg bg-primary/10 border border-primary/20">
+                        <div className="flex-shrink-0">
+                          <Phone className="h-5 w-5 text-primary" />
+                        </div>
+                        <div className="flex-1">
+                          <p className="font-semibold text-foreground">(21) 99805-5549</p>
+                          <p className="text-sm text-muted-foreground">Atendimento 24h</p>
+                        </div>
+                      </div>
+                      
+                      <div className="flex items-center gap-3 p-3 rounded-lg bg-secondary/10 border border-secondary/20">
+                        <div className="flex-shrink-0">
+                          <Clock className="h-5 w-5 text-secondary-foreground" />
+                        </div>
+                        <div className="flex-1">
+                          <p className="font-semibold text-foreground">Horário de Atendimento</p>
+                          <p className="text-sm text-muted-foreground">Segunda a Sexta: 8h às 18h</p>
+                        </div>
                       </div>
                     </div>
                     
-                    <Button
-                      onClick={() => {
-                        scrollToSection('contato');
-                        openWhatsApp();
-                      }}
-                      className="btn-whatsapp w-full font-medium"
-                      aria-label="Abrir WhatsApp para agendar consulta"
-                    >
-                      Consulta Gratuita via WhatsApp
-                    </Button>
+                    {/* Botões de ação */}
+                    <div className="space-y-3">
+                      <Button
+                        onClick={() => {
+                          scrollToSection('contato');
+                          openWhatsApp();
+                        }}
+                        className="btn-whatsapp w-full font-medium py-6 text-base"
+                        aria-label="Abrir WhatsApp para agendar consulta"
+                      >
+                        <Phone className="h-5 w-5 mr-2" />
+                        Consulta Gratuita via WhatsApp
+                      </Button>
+                      
+                      <Button
+                        onClick={() => scrollToSection('contato')}
+                        variant="outline"
+                        className="w-full font-medium py-6 text-base border-primary/30 text-primary hover:bg-primary hover:text-primary-foreground"
+                        aria-label="Ir para seção de contato"
+                      >
+                        <Mail className="h-5 w-5 mr-2" />
+                        Enviar Mensagem
+                      </Button>
+                    </div>
                   </div>
                 </div>
               </SheetContent>

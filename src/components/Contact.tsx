@@ -34,7 +34,7 @@ const Contact = () => {
       // WhatsApp message
       const whatsappMessage = `Olá! Meu nome é ${formData.name}.%0A%0ATelefone: ${formData.phone}%0AEmail: ${formData.email}%0A%0AMensagem: ${formData.message}`;
       
-      window.open(`https://wa.me/5521999999999?text=${whatsappMessage}`, '_blank');
+      window.open(`https://wa.me/5521998055549?text=${whatsappMessage}`, '_blank');
       
       toast({
         title: "Mensagem enviada!",
@@ -62,8 +62,8 @@ const Contact = () => {
   };
 
   const openWhatsApp = () => {
-    window.open('https://wa.me/5521999999999?text=Olá, gostaria de agendar uma consulta gratuita.', '_blank');
-  };
+  window.open('https://wa.me/5521998055549?text=Olá, gostaria de agendar uma consulta gratuita.', '_blank');
+};
 
   return (
     <section id="contato" className="py-16 md:py-24 bg-background">
@@ -115,7 +115,7 @@ const Contact = () => {
                   <div>
                     <h4 className="font-semibold text-foreground text-base md:text-lg">Telefone</h4>
                     <p className="text-muted-foreground text-sm md:text-base">
-                      (21) 99999-9999 • Atendimento 24 horas
+                      (21) 99805-5549 • Atendimento 24 horas
                     </p>
                   </div>
                 </div>
@@ -196,7 +196,7 @@ const Contact = () => {
                       type="tel"
                       value={formData.phone}
                       onChange={handleChange}
-                      placeholder="(21) 99999-9999"
+                      placeholder="(21) 99805-5549"
                       required
                       className="w-full text-base"
                     />
@@ -221,7 +221,7 @@ const Contact = () => {
                     <Button
                       type="submit"
                       disabled={isSubmitting}
-                      className="btn-whatsapp flex-1"
+                      className="btn-whatsapp flex-1 py-4"
                     >
                       {isSubmitting ? (
                         <>
@@ -240,7 +240,7 @@ const Contact = () => {
                       type="button"
                       onClick={openWhatsApp}
                       variant="outline"
-                      className="btn-outline-elegant flex-1"
+                      className="btn-outline-elegant flex-1 py-4"
                     >
                       <Phone className="mr-2 h-5 w-5" />
                       Ligar Agora

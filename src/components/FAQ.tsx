@@ -6,7 +6,7 @@ import {
   AccordionTrigger,
 } from "@/components/ui/accordion";
 import { Button } from "@/components/ui/button";
-import { MessageSquare } from "lucide-react";
+import { MessageCircle, MessageSquare } from "lucide-react";
 
 const FAQ: React.FC = () => {
   const faqData = [
@@ -98,16 +98,17 @@ const FAQ: React.FC = () => {
               <div className="flex flex-col sm:flex-row gap-3 md:gap-4 justify-center">
                 <Button
                   onClick={scrollToContact}
-                  className="btn-hero"
+                  className="btn-hero py-6"
                 >
                   <MessageSquare className="mr-2 h-5 w-5" />
                   Entre em Contato
                 </Button>
                 <Button
-                  onClick={() => window.open('https://wa.me/5521999999999?text=Olá, tenho uma dúvida sobre os serviços.', '_blank')}
+                  onClick={() => window.open('https://wa.me/5521998055549?text=Olá, tenho uma dúvida sobre os serviços.', '_blank')}
                   variant="outline"
-                  className="btn-outline-elegant"
+                  className="btn-outline-elegant py-6"
                 >
+                  <MessageCircle className="mr-2 h-5 w-5" />
                   WhatsApp
                 </Button>
               </div>
