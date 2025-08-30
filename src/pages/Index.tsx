@@ -4,13 +4,16 @@ import About from '@/components/About';
 import Services from '@/components/Services';
 import Differentials from '@/components/Differentials';
 import Team from '@/components/Team';
+import FAQ from '@/components/FAQ';
 import Contact from '@/components/Contact';
+import MapSection from '@/components/MapSection';
 import Footer from '@/components/Footer';
-import WhatsAppFloat from '@/components/WhatsAppFloat';
+import WhatsAppButton from '@/components/WhatsAppButton';
+import { BackToTop } from '@/components/BackToTop';
 
 const Index = () => {
   return (
-    <div className="min-h-screen bg-background">
+    <div className="min-h-screen bg-background custom-scrollbar">
       <Navigation />
       <main>
         <Hero />
@@ -18,10 +21,13 @@ const Index = () => {
         <Services />
         <Differentials />
         <Team />
+        <FAQ />
         <Contact />
+        <MapSection />
       </main>
       <Footer />
-      <WhatsAppFloat />
+      <BackToTop />
+      <WhatsAppButton />
     </div>
   );
 };

@@ -1,0 +1,39 @@
+# Dependências de desenvolvimento
+node_modules
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Arquivos de build temporários
+dist-ssr
+*.local
+
+# Arquivos de desenvolvimento
+.vscode
+.idea
+.DS_Store
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?
+
+# Arquivos de teste
+coverage
+*.test.js
+*.test.ts
+*.test.tsx
+
+# Arquivos de documentação
+README.md
+IMPROVEMENTS.md
+*.md
+
+# Arquivos de configuração de desenvolvimento
+.eslintrc*
+.prettierrc*
+.editorconfig
+
+# Logs
+logs
+*.log

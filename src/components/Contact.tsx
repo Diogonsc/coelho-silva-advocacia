@@ -2,7 +2,7 @@ import { useState } from 'react';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Textarea } from '@/components/ui/textarea';
-import { MapPin, Phone, Mail, Clock, MessageCircle, Send } from 'lucide-react';
+import { MapPin, Phone, Mail, Clock, MessageCircle } from 'lucide-react';
 import { useToast } from '@/hooks/use-toast';
 
 const Contact = () => {
@@ -13,22 +13,45 @@ const Contact = () => {
     phone: '',
     message: ''
   });
+  const [isSubmitting, setIsSubmitting] = useState(false);
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     
-    // WhatsApp message
-    const whatsappMessage = `Olá! Meu nome é ${formData.name}.%0A%0ATelefone: ${formData.phone}%0AEmail: ${formData.email}%0A%0AMensagem: ${formData.message}`;
-    
-    window.open(`https://wa.me/5521999999999?text=${whatsappMessage}`, '_blank');
-    
-    toast({
-      title: "Mensagem enviada!",
-      description: "Você será redirecionado para o WhatsApp para finalizar o contato.",
-    });
+    // Validação básica
+    if (!formData.name.trim() || !formData.phone.trim() || !formData.message.trim()) {
+      toast({
+        title: "Campos obrigatórios",
+        description: "Por favor, preencha todos os campos obrigatórios.",
+        variant: "destructive",
+      });
+      return;
+    }
 
-    // Reset form
-    setFormData({ name: '', email: '', phone: '', message: '' });
+    setIsSubmitting(true);
+    
+    try {
+      // WhatsApp message
+      const whatsappMessage = `Olá! Meu nome é ${formData.name}.%0A%0ATelefone: ${formData.phone}%0AEmail: ${formData.email}%0A%0AMensagem: ${formData.message}`;
+      
+      window.open(`https://wa.me/5521999999999?text=${whatsappMessage}`, '_blank');
+      
+      toast({
+        title: "Mensagem enviada!",
+        description: "Você será redirecionado para o WhatsApp para finalizar o contato.",
+      });
+
+      // Reset form
+      setFormData({ name: '', email: '', phone: '', message: '' });
+    } catch {
+      toast({
+        title: "Erro ao enviar",
+        description: "Ocorreu um erro ao enviar sua mensagem. Tente novamente.",
+        variant: "destructive",
+      });
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
@@ -43,16 +66,16 @@ const Contact = () => {
   };
 
   return (
-    <section id="contato" className="py-24 bg-background">
+    <section id="contato" className="py-16 md:py-24 bg-background">
       <div className="container mx-auto px-4">
         <div className="max-w-6xl mx-auto">
           {/* Header */}
-          <div className="text-center mb-16 animate-fade-in">
-            <h2 className="text-4xl md:text-5xl font-serif font-bold text-foreground mb-6">
+          <div className="text-center mb-12 md:mb-16 animate-fade-in">
+            <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-foreground mb-4 md:mb-6">
               Entre em Contato
             </h2>
-            <div className="w-24 h-1 bg-primary mx-auto mb-6"></div>
-            <p className="text-xl text-muted-foreground max-w-3xl mx-auto text-balance">
+            <div className="w-20 md:w-24 h-1 bg-primary mx-auto mb-4 md:mb-6 rounded-full"></div>
+            <p className="text-base md:text-lg lg:text-xl text-muted-foreground max-w-3xl mx-auto text-balance leading-relaxed px-4 md:px-0">
               Estamos prontos para defender seus direitos. Entre em contato agora mesmo 
               e agende sua consulta gratuita.
             </p>
@@ -60,195 +83,170 @@ const Contact = () => {
 
           <div className="grid lg:grid-cols-2 gap-16">
             {/* Contact Info */}
-            <div className="space-y-8 animate-slide-up">
+            <div className="space-y-8 animate-slide-in-left">
               <div>
-                <h3 className="text-2xl font-serif font-bold text-foreground mb-6">
+                <h3 className="text-2xl md:text-3xl font-bold text-foreground mb-4 md:mb-6">
                   Fale Conosco
                 </h3>
-                <p className="text-lg text-muted-foreground mb-8 leading-relaxed">
+                <p className="text-base md:text-lg text-muted-foreground mb-6 md:mb-8 leading-relaxed">
                   Nossa equipe está pronta para atendê-lo. A primeira consulta é gratuita 
                   e sem compromisso. Vamos analisar seu caso e orientar sobre a melhor estratégia.
                 </p>
               </div>
 
               {/* Contact Details */}
-              <div className="space-y-6">
-                <div className="flex items-start gap-4 p-4 rounded-lg border border-border/50 hover:border-primary/30 transition-colors">
+              <div className="space-y-4">
+                <div className="flex items-center gap-3 p-4 rounded-xl border border-border/50 hover:border-primary/30 transition-colors hover-lift">
                   <div className="w-12 h-12 bg-primary/10 rounded-full flex items-center justify-center flex-shrink-0">
                     <MapPin className="h-6 w-6 text-primary" />
                   </div>
                   <div>
-                    <h4 className="font-semibold text-foreground mb-1">Endereço</h4>
-                    <p className="text-muted-foreground">
-                      Rua Auristela, 450-B<br />
-                      Santa Cruz - Rio de Janeiro - RJ
+                    <h4 className="font-semibold text-foreground text-base md:text-lg">Endereço</h4>
+                    <p className="text-muted-foreground text-sm md:text-base">
+                      Rua Auristela, 450-B, Santa Cruz - Rio de Janeiro - RJ
                     </p>
                   </div>
                 </div>
 
-                <div className="flex items-start gap-4 p-4 rounded-lg border border-border/50 hover:border-primary/30 transition-colors">
+                <div className="flex items-center gap-3 p-4 rounded-xl border border-border/50 hover:border-primary/30 transition-colors hover-lift">
                   <div className="w-12 h-12 bg-primary/10 rounded-full flex items-center justify-center flex-shrink-0">
                     <Phone className="h-6 w-6 text-primary" />
                   </div>
                   <div>
-                    <h4 className="font-semibold text-foreground mb-1">Telefone</h4>
-                    <p className="text-muted-foreground">
-                      (21) 99999-9999<br />
-                      Atendimento 24 horas
+                    <h4 className="font-semibold text-foreground text-base md:text-lg">Telefone</h4>
+                    <p className="text-muted-foreground text-sm md:text-base">
+                      (21) 99999-9999 • Atendimento 24 horas
                     </p>
                   </div>
                 </div>
 
-                <div className="flex items-start gap-4 p-4 rounded-lg border border-border/50 hover:border-primary/30 transition-colors">
+                <div className="flex items-center gap-3 p-4 rounded-xl border border-border/50 hover:border-primary/30 transition-colors hover-lift">
                   <div className="w-12 h-12 bg-primary/10 rounded-full flex items-center justify-center flex-shrink-0">
                     <Mail className="h-6 w-6 text-primary" />
                   </div>
                   <div>
-                    <h4 className="font-semibold text-foreground mb-1">E-mail</h4>
-                    <p className="text-muted-foreground">
-                      contato@coelhosilva.adv.br<br />
-                      Resposta em até 2 horas
+                    <h4 className="font-semibold text-foreground text-base md:text-lg">Email</h4>
+                    <p className="text-muted-foreground text-sm md:text-base">
+                      contato@coelhosilva.adv.br
                     </p>
                   </div>
                 </div>
 
-                <div className="flex items-start gap-4 p-4 rounded-lg border border-border/50 hover:border-primary/30 transition-colors">
+                <div className="flex items-center gap-3 p-4 rounded-xl border border-border/50 hover:border-primary/30 transition-colors hover-lift">
                   <div className="w-12 h-12 bg-primary/10 rounded-full flex items-center justify-center flex-shrink-0">
                     <Clock className="h-6 w-6 text-primary" />
                   </div>
                   <div>
-                    <h4 className="font-semibold text-foreground mb-1">Horário de Atendimento</h4>
-                    <p className="text-muted-foreground">
+                    <h4 className="font-semibold text-foreground text-base md:text-lg">Horário de Atendimento</h4>
+                    <p className="text-muted-foreground text-sm md:text-base">
                       Segunda a Sexta: 8h às 18h<br />
                       Emergências: 24 horas
                     </p>
                   </div>
                 </div>
               </div>
-
-              {/* Quick Action */}
-              <div className="bg-whatsapp/10 border border-whatsapp/30 rounded-xl p-6 text-center">
-                <h4 className="text-xl font-serif font-bold text-foreground mb-3">
-                  Atendimento Imediato
-                </h4>
-                <p className="text-muted-foreground mb-4">
-                  Para casos urgentes, fale conosco agora pelo WhatsApp
-                </p>
-                <Button 
-                  onClick={openWhatsApp}
-                  className="btn-whatsapp w-full font-semibold group"
-                >
-                  <MessageCircle className="mr-2 h-5 w-5 group-hover:scale-110 transition-transform" />
-                  Chamar no WhatsApp
-                </Button>
-              </div>
             </div>
 
             {/* Contact Form */}
-            <div className="animate-slide-up" style={{ animationDelay: '0.2s' }}>
-              <div className="card-elegant p-8">
-                <h3 className="text-2xl font-serif font-bold text-foreground mb-6">
-                  Solicite sua Consulta Gratuita
+            <div className="animate-slide-in-right">
+              <div className="card-elegant p-6 md:p-8 rounded-2xl">
+                <h3 className="text-xl md:text-2xl font-bold text-foreground mb-4 md:mb-6">
+                  Envie sua Mensagem
                 </h3>
                 
-                <form onSubmit={handleSubmit} className="space-y-6">
-                  <div className="grid md:grid-cols-2 gap-4">
-                    <div>
-                      <label htmlFor="name" className="block text-sm font-medium text-foreground mb-2">
-                        Nome Completo *
-                      </label>
-                      <Input
-                        type="text"
-                        id="name"
-                        name="name"
-                        value={formData.name}
-                        onChange={handleChange}
-                        required
-                        className="w-full"
-                        placeholder="Seu nome completo"
-                      />
-                    </div>
-                    
-                    <div>
-                      <label htmlFor="phone" className="block text-sm font-medium text-foreground mb-2">
-                        Telefone *
-                      </label>
-                      <Input
-                        type="tel"
-                        id="phone"
-                        name="phone"
-                        value={formData.phone}
-                        onChange={handleChange}
-                        required
-                        className="w-full"
-                        placeholder="(21) 99999-9999"
-                      />
-                    </div>
-                  </div>
-                  
+                <form onSubmit={handleSubmit} className="space-y-4 md:space-y-6">
                   <div>
-                    <label htmlFor="email" className="block text-sm font-medium text-foreground mb-2">
-                      E-mail *
+                    <label htmlFor="name" className="block text-sm md:text-base font-medium text-foreground mb-2">
+                      Nome Completo *
                     </label>
                     <Input
-                      type="email"
-                      id="email"
-                      name="email"
-                      value={formData.email}
+                      id="name"
+                      name="name"
+                      type="text"
+                      value={formData.name}
                       onChange={handleChange}
+                      placeholder="Seu nome completo"
                       required
-                      className="w-full"
-                      placeholder="seu@email.com"
+                      className="w-full text-base"
                     />
                   </div>
-                  
+
                   <div>
-                    <label htmlFor="message" className="block text-sm font-medium text-foreground mb-2">
-                      Descreva brevemente seu caso *
+                    <label htmlFor="email" className="block text-sm md:text-base font-medium text-foreground mb-2">
+                      Email
+                    </label>
+                    <Input
+                      id="email"
+                      name="email"
+                      type="email"
+                      value={formData.email}
+                      onChange={handleChange}
+                      placeholder="seu@email.com"
+                      className="w-full text-base"
+                    />
+                  </div>
+
+                  <div>
+                    <label htmlFor="phone" className="block text-sm md:text-base font-medium text-foreground mb-2">
+                      Telefone *
+                    </label>
+                    <Input
+                      id="phone"
+                      name="phone"
+                      type="tel"
+                      value={formData.phone}
+                      onChange={handleChange}
+                      placeholder="(21) 99999-9999"
+                      required
+                      className="w-full text-base"
+                    />
+                  </div>
+
+                  <div>
+                    <label htmlFor="message" className="block text-sm md:text-base font-medium text-foreground mb-2">
+                      Mensagem *
                     </label>
                     <Textarea
                       id="message"
                       name="message"
                       value={formData.message}
                       onChange={handleChange}
+                      placeholder="Descreva brevemente seu caso ou dúvida..."
                       required
-                      rows={4}
-                      className="w-full"
-                      placeholder="Conte-nos sobre sua situação para que possamos orientá-lo da melhor forma..."
+                      className="w-full min-h-[120px] resize-none text-base"
                     />
                   </div>
-                  
-                  <Button 
-                    type="submit"
-                    className="btn-hero w-full font-semibold group"
-                  >
-                    <Send className="mr-2 h-5 w-5 group-hover:scale-110 transition-transform" />
-                    Enviar Mensagem
-                  </Button>
-                  
-                  <p className="text-sm text-muted-foreground text-center">
-                    Ao enviar, você será direcionado para o WhatsApp para finalizar o contato. 
-                    Suas informações são tratadas com total sigilo profissional.
-                  </p>
-                </form>
-              </div>
-            </div>
-          </div>
 
-          {/* Map Section */}
-          <div className="mt-16">
-            <div className="card-elegant p-2 overflow-hidden">
-              <div className="w-full h-96 bg-muted rounded-lg flex items-center justify-center">
-                <div className="text-center">
-                  <MapPin className="h-12 w-12 text-primary mx-auto mb-4" />
-                  <h4 className="text-xl font-serif font-bold text-foreground mb-2">
-                    Nossa Localização
-                  </h4>
-                  <p className="text-muted-foreground">
-                    Rua Auristela, 450-B - Santa Cruz<br />
-                    Rio de Janeiro - RJ
-                  </p>
-                </div>
+                  <div className="flex flex-col sm:flex-row gap-4">
+                    <Button
+                      type="submit"
+                      disabled={isSubmitting}
+                      className="btn-whatsapp flex-1"
+                    >
+                      {isSubmitting ? (
+                        <>
+                          <div className="w-4 h-4 border-2 border-white border-t-transparent rounded-full animate-spin mr-2"></div>
+                          Enviando...
+                        </>
+                      ) : (
+                        <>
+                          <MessageCircle className="mr-2 h-5 w-5" />
+                          Enviar via WhatsApp
+                        </>
+                      )}
+                    </Button>
+                    
+                    <Button
+                      type="button"
+                      onClick={openWhatsApp}
+                      variant="outline"
+                      className="btn-outline-elegant flex-1"
+                    >
+                      <Phone className="mr-2 h-5 w-5" />
+                      Ligar Agora
+                    </Button>
+                  </div>
+                </form>
               </div>
             </div>
           </div>

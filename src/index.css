@@ -1,42 +1,51 @@
-@import url('https://fonts.googleapis.com/css2?family=Merriweather:wght@300;400;700;900&family=Open+Sans:wght@300;400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Merriweather:wght@300;400;700;900&family=Open+Sans:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;600;700&display=swap');
 
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
-/* Coelho & Silva Advocacia Criminal Design System */
+/* Coelho & Silva Advocacia Criminal - Design System V2 */
 
 @layer base {
   :root {
-    /* Core Brand Colors - Black & White Elegance */
+    /* Core Brand Colors - Black & White Elegance (Mantido) */
     --background: 0 0% 100%;
     --foreground: 0 0% 0%;
     
-    /* Legal Professional Palette */
+    /* Legal Professional Palette (Mantido) */
     --primary: 0 0% 0%;
     --primary-foreground: 0 0% 100%;
     
     --secondary: 0 0% 96%;
     --secondary-foreground: 0 0% 0%;
     
+    /* Enhanced Neutral Colors */
     --muted: 0 0% 93%;
     --muted-foreground: 0 0% 40%;
     
     --accent: 0 0% 95%;
     --accent-foreground: 0 0% 9%;
     
+    /* Card & UI Elements */
     --card: 0 0% 100%;
     --card-foreground: 0 0% 0%;
     
     --popover: 0 0% 100%;
     --popover-foreground: 0 0% 0%;
     
-    /* Professional Trust Colors */
+    /* Professional Trust Colors (Mantido) */
     --trust: 215 28% 17%;
     --trust-foreground: 0 0% 100%;
     
-    /* WhatsApp Green */
-    --whatsapp: 142 70% 49%;
+    /* Success & Warning (Tons de cinza) */
+    --success: 0 0% 25%;
+    --success-foreground: 0 0% 100%;
+    
+    --warning: 0 0% 35%;
+    --warning-foreground: 0 0% 100%;
+    
+    /* WhatsApp Gray (Alterado) */
+    --whatsapp: 0 0% 50%;
     --whatsapp-foreground: 0 0% 100%;
     
     /* UI Elements */
@@ -47,6 +56,10 @@
     --destructive-foreground: 0 0% 100%;
     
     --radius: 0.75rem;
+    
+    /* Custom Properties for Animations */
+    --transition-smooth: cubic-bezier(0.4, 0, 0.2, 1);
+    --transition-bounce: cubic-bezier(0.68, -0.55, 0.265, 1.55);
   }
 
   .dark {
@@ -71,59 +84,234 @@
     @apply border-border;
   }
   
+  html {
+    scroll-behavior: smooth;
+    font-size: 16px;
+  }
+  
   body {
     @apply bg-background text-foreground font-sans;
     font-family: 'Open Sans', sans-serif;
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
   }
   
+  /* Enhanced Typography Scale */
   h1, h2, h3, h4, h5, h6 {
-    font-family: 'Merriweather', serif;
+    font-family: 'Playfair Display', 'Merriweather', serif;
+    font-weight: 600;
+    line-height: 1.2;
+    letter-spacing: -0.02em;
+  }
+  
+  h1 {
+    font-size: clamp(2.5rem, 5vw, 4rem);
+    font-weight: 700;
+  }
+  
+  h2 {
+    font-size: clamp(2rem, 4vw, 3rem);
+    font-weight: 600;
+  }
+  
+  h3 {
+    font-size: clamp(1.5rem, 3vw, 2rem);
+    font-weight: 600;
+  }
+  
+  /* Focus States for Accessibility */
+  *:focus-visible {
+    @apply outline-none ring-2 ring-primary ring-offset-2 ring-offset-background;
+  }
+  
+  /* Selection */
+  ::selection {
+    @apply bg-primary/20 text-foreground;
   }
 }
 
 @layer components {
-  /* Professional Button Variants */
+  /* Enhanced Button Variants */
   .btn-hero {
-    @apply bg-primary text-primary-foreground hover:bg-trust transition-all duration-300 ease-in-out transform hover:scale-105 shadow-lg hover:shadow-xl;
+    @apply bg-primary text-primary-foreground hover:bg-trust transition-all duration-300 ease-out transform hover:scale-105 hover:shadow-xl shadow-lg font-semibold;
+    box-shadow: 0 4px 14px 0 rgba(0, 0, 0, 0.3);
   }
   
   .btn-outline-elegant {
-    @apply border-2 border-primary text-primary bg-transparent hover:bg-primary hover:text-primary-foreground transition-all duration-300;
+    @apply border-2 border-primary text-primary bg-transparent hover:bg-primary hover:text-primary-foreground transition-all duration-300 font-semibold;
+    backdrop-filter: blur(10px);
   }
   
   .btn-whatsapp {
-    @apply bg-whatsapp text-whatsapp-foreground hover:bg-whatsapp/90 transition-all duration-300 shadow-lg hover:shadow-xl;
+    @apply bg-whatsapp text-whatsapp-foreground hover:bg-whatsapp/90 transition-all duration-300 shadow-lg hover:shadow-xl font-semibold;
+    box-shadow: 0 4px 14px 0 rgba(128, 128, 128, 0.3);
   }
   
-  /* Professional Cards */
+  .btn-secondary {
+    @apply bg-secondary text-secondary-foreground hover:bg-secondary/90 transition-all duration-300 font-semibold;
+  }
+  
+  /* Enhanced Cards */
   .card-elegant {
     @apply bg-card border border-border/50 shadow-lg hover:shadow-xl transition-all duration-300 backdrop-blur-sm;
+    backdrop-filter: blur(10px);
   }
   
   .card-service {
-    @apply bg-gradient-to-br from-card to-accent/30 border border-border/30 hover:border-primary/20 transition-all duration-300;
+    @apply bg-gradient-to-br from-card to-accent/30 border border-border/30 hover:border-primary/20 transition-all duration-300 hover:shadow-lg;
   }
   
-  /* Gradients */
+  .card-glass {
+    @apply bg-black/60 backdrop-blur-md border border-white/20 shadow-xl;
+  }
+  
+  /* Enhanced Gradients (Mantendo tons neutros) */
   .gradient-hero {
-    background: linear-gradient(135deg, hsl(0 0% 0%) 0%, hsl(215 28% 17%) 100%);
+    background: linear-gradient(135deg, 
+      hsl(0 0% 0% / 0.95) 0%, 
+      hsl(215 28% 17% / 0.85) 50%,
+      hsl(0 0% 20% / 0.1) 100%);
   }
   
   .gradient-section {
-    background: linear-gradient(180deg, hsl(0 0% 98%) 0%, hsl(0 0% 100%) 100%);
+    background: linear-gradient(180deg, 
+      hsl(0 0% 98%) 0%, 
+      hsl(0 0% 100%) 100%);
   }
   
-  /* Professional Animations */
+  /* Enhanced Animations */
   .animate-slide-up {
-    animation: slideUp 0.6s ease-out forwards;
+    animation: slideUp 0.8s var(--transition-smooth) forwards;
   }
   
   .animate-fade-in {
-    animation: fadeIn 0.8s ease-out forwards;
+    animation: fadeIn 1s var(--transition-smooth) forwards;
   }
   
   .animate-scale-in {
-    animation: scaleIn 0.5s ease-out forwards;
+    animation: scaleIn 0.6s var(--transition-bounce) forwards;
+  }
+  
+  .animate-slide-in-left {
+    animation: slideInLeft 0.8s var(--transition-smooth) forwards;
+  }
+  
+  .animate-slide-in-right {
+    animation: slideInRight 0.8s var(--transition-smooth) forwards;
+  }
+  
+  /* Carousel Enhancements */
+  .embla {
+    overflow: hidden;
+  }
+  
+  .embla__container {
+    display: flex;
+    gap: 1rem;
+  }
+  
+  .embla__slide {
+    flex: 0 0 auto;
+    min-width: 0;
+  }
+  
+  /* Ensure infinite loop works properly */
+  .embla__container {
+    will-change: transform;
+  }
+  
+  /* Carousel Navigation Buttons */
+  .carousel-nav-button {
+    @apply absolute top-1/2 -translate-y-1/2 h-10 w-10 bg-white/90 hover:bg-white shadow-lg border-0 rounded-full flex items-center justify-center transition-all duration-300;
+    z-index: 10;
+  }
+  
+  .carousel-nav-button:hover {
+    @apply shadow-xl scale-105;
+  }
+  
+  .carousel-nav-button:disabled {
+    @apply opacity-50 cursor-not-allowed;
+  }
+  
+  /* Carousel Container with Navigation Space */
+  .carousel-with-nav {
+    @apply relative px-4 md:px-20;
+  }
+  
+  .carousel-with-nav .carousel-nav-button {
+    @apply absolute -left-2 md:-left-10 top-1/2 -translate-y-1/2 h-10 w-10 md:h-12 md:w-12 bg-white/90 hover:bg-white shadow-lg border-0 rounded-full flex items-center justify-center transition-all duration-300 z-20;
+  }
+  
+  .carousel-with-nav .carousel-nav-button:last-child {
+    @apply -right-2 md:-right-10 left-auto;
+  }
+  
+  /* Carousel Dots */
+  .carousel-dots {
+    @apply flex justify-center gap-2 mt-4 md:mt-6;
+  }
+  
+  .carousel-dot {
+    @apply w-2 h-2 md:w-3 md:h-3 rounded-full transition-colors cursor-pointer;
+  }
+  
+  .carousel-dot.active {
+    @apply bg-primary;
+  }
+  
+  .carousel-dot.active.animate-pulse {
+    animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+  }
+  
+  .carousel-dot:not(.active) {
+    @apply bg-muted-foreground/30 hover:bg-muted-foreground/50;
+  }
+  
+  /* Hover Effects */
+  .hover-lift {
+    @apply transition-all duration-300 ease-out;
+  }
+  
+  .hover-lift:hover {
+    @apply transform -translate-y-2 shadow-xl;
+  }
+  
+  /* Text Effects */
+  .text-gradient {
+    @apply bg-gradient-to-r from-primary to-muted-foreground bg-clip-text text-transparent;
+  }
+  
+  .text-shadow {
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  }
+  
+  /* Loading States */
+  .skeleton {
+    @apply animate-pulse bg-muted rounded;
+  }
+  
+  /* Scrollbar Styling */
+  .custom-scrollbar {
+    scrollbar-width: thin;
+    scrollbar-color: hsl(var(--muted-foreground)) transparent;
+  }
+  
+  .custom-scrollbar::-webkit-scrollbar {
+    width: 6px;
+  }
+  
+  .custom-scrollbar::-webkit-scrollbar-track {
+    background: transparent;
+  }
+  
+  .custom-scrollbar::-webkit-scrollbar-thumb {
+    @apply bg-muted-foreground/30 rounded-full;
+  }
+  
+  .custom-scrollbar::-webkit-scrollbar-thumb:hover {
+    @apply bg-muted-foreground/50;
   }
 }
 
@@ -135,13 +323,25 @@
   .scroll-smooth {
     scroll-behavior: smooth;
   }
+  
+  .backdrop-blur-sm {
+    backdrop-filter: blur(4px);
+  }
+  
+  .backdrop-blur-md {
+    backdrop-filter: blur(12px);
+  }
+  
+  .backdrop-blur-lg {
+    backdrop-filter: blur(16px);
+  }
 }
 
-/* Professional Animations */
+/* Enhanced Animations */
 @keyframes slideUp {
   from {
     opacity: 0;
-    transform: translateY(30px);
+    transform: translateY(40px);
   }
   to {
     opacity: 1;
@@ -161,7 +361,7 @@
 @keyframes scaleIn {
   from {
     opacity: 0;
-    transform: scale(0.95);
+    transform: scale(0.9);
   }
   to {
     opacity: 1;
@@ -169,25 +369,92 @@
   }
 }
 
-/* Smooth Scroll */
-html {
-  scroll-behavior: smooth;
+@keyframes slideInLeft {
+  from {
+    opacity: 0;
+    transform: translateX(-40px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
 }
 
-/* Professional Scrollbar */
+@keyframes slideInRight {
+  from {
+    opacity: 0;
+    transform: translateX(40px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+/* Enhanced WhatsApp Button Animation */
+@keyframes pulse-ring {
+  0% {
+    box-shadow: 0 0 0 0 rgba(34, 197, 94, 0.7);
+  }
+  70% {
+    box-shadow: 0 0 0 20px rgba(34, 197, 94, 0);
+  }
+  100% {
+    box-shadow: 0 0 0 0 rgba(34, 197, 94, 0);
+  }
+}
+
+.animate-pulse-ring {
+  animation: pulse-ring 2s infinite;
+}
+
+/* Responsive Typography */
+@media (max-width: 1080px) {
+  html {
+    font-size: 93.75%;
+  }
+}
+
+@media (max-width: 720px) {
+  html {
+    font-size: 87.5%;
+  }
+}
+
+/* Custom Scrollbar */
 ::-webkit-scrollbar {
   width: 8px;
+  height: 8px;
 }
 
 ::-webkit-scrollbar-track {
-  background: hsl(var(--muted));
+  background: transparent;
+  padding: 12px;
 }
 
 ::-webkit-scrollbar-thumb {
-  background: hsl(var(--primary));
+  height: 5px;
+  width: 3px;
+  padding: 0 3px;
+  background: hsl(var(--muted-foreground) / 0.3);
   border-radius: 4px;
+  border: 2px solid transparent;
+  background-clip: padding-box;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: hsl(var(--trust));
+  background: hsl(var(--muted-foreground) / 0.5);
+  padding: 0 3px;
+  background-clip: padding-box;
+}
+
+@media (max-width: 767px) {
+  ::-webkit-scrollbar {
+    width: 7px;
+    height: 5px;
+  }
+
+  ::-webkit-scrollbar-track {
+    padding: 5px;
+  }
 }

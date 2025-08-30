@@ -1,73 +1,106 @@
-# Welcome to your Lovable project
+# Coelho & Silva Advocacia Criminal
 
-## Project info
+Site institucional do escritório de advocacia criminal Coelho & Silva, desenvolvido com React, TypeScript e Vite.
 
-**URL**: https://lovable.dev/projects/5336b271-60f3-463c-b657-ae1f55aa07ff
+## 🚀 Deploy na Vercel
 
-## How can I edit this code?
+### Pré-requisitos
+- Conta na [Vercel](https://vercel.com)
+- Repositório no GitHub/GitLab/Bitbucket
 
-There are several ways of editing your application.
+### Passos para Deploy
 
-**Use Lovable**
+1. **Conecte seu repositório à Vercel:**
+   - Acesse [vercel.com](https://vercel.com)
+   - Clique em "New Project"
+   - Importe seu repositório
 
-Simply visit the [Lovable Project](https://lovable.dev/projects/5336b271-60f3-463c-b657-ae1f55aa07ff) and start prompting.
+2. **Configurações do Projeto:**
+   - **Framework Preset:** Vite
+   - **Build Command:** `npm run build:prod`
+   - **Output Directory:** `dist`
+   - **Install Command:** `npm install`
 
-Changes made via Lovable will be committed automatically to this repo.
+3. **Variáveis de Ambiente (se necessário):**
+   - Não são necessárias para este projeto
 
-**Use your preferred IDE**
+4. **Deploy:**
+   - Clique em "Deploy"
+   - Aguarde o build ser concluído
 
-If you want to work locally using your own IDE, you can clone this repo and push changes. Pushed changes will also be reflected in Lovable.
+### Configurações Específicas
 
-The only requirement is having Node.js & npm installed - [install with nvm](https://github.com/nvm-sh/nvm#installing-and-updating)
+O projeto já está configurado com:
+- ✅ `vercel.json` para roteamento SPA
+- ✅ Otimização de imagens
+- ✅ Componentes com fallback de imagens
+- ✅ Build otimizado para produção
+- ✅ Redirecionamentos configurados
 
-Follow these steps:
+## 🛠️ Desenvolvimento Local
 
-```sh
-# Step 1: Clone the repository using the project's Git URL.
-git clone <YOUR_GIT_URL>
+```bash
+# Instalar dependências
+npm install
 
-# Step 2: Navigate to the project directory.
-cd <YOUR_PROJECT_NAME>
-
-# Step 3: Install the necessary dependencies.
-npm i
-
-# Step 4: Start the development server with auto-reloading and an instant preview.
+# Executar em desenvolvimento
 npm run dev
+
+# Build para produção
+npm run build:prod
+
+# Preview do build
+npm run preview
 ```
 
-**Edit a file directly in GitHub**
+## 📁 Estrutura do Projeto
 
-- Navigate to the desired file(s).
-- Click the "Edit" button (pencil icon) at the top right of the file view.
-- Make your changes and commit the changes.
+```
+src/
+├── components/          # Componentes React
+│   ├── ui/             # Componentes de UI (shadcn/ui)
+│   └── *.tsx           # Componentes específicos
+├── assets/             # Imagens e recursos estáticos
+├── lib/                # Utilitários e configurações
+├── hooks/              # Custom hooks
+└── pages/              # Páginas da aplicação
+```
 
-**Use GitHub Codespaces**
+## 🎨 Tecnologias Utilizadas
 
-- Navigate to the main page of your repository.
-- Click on the "Code" button (green button) near the top right.
-- Select the "Codespaces" tab.
-- Click on "New codespace" to launch a new Codespace environment.
-- Edit files directly within the Codespace and commit and push your changes once you're done.
+- **React 18** - Framework principal
+- **TypeScript** - Tipagem estática
+- **Vite** - Build tool e dev server
+- **Tailwind CSS** - Estilização
+- **shadcn/ui** - Componentes de UI
+- **Radix UI** - Componentes acessíveis
+- **React Router** - Roteamento
 
-## What technologies are used for this project?
+## 📱 Responsividade
 
-This project is built with:
+O site é totalmente responsivo e otimizado para:
+- 📱 Mobile (320px+)
+- 📱 Tablet (768px+)
+- 💻 Desktop (1024px+)
+- 🖥️ Large Desktop (1440px+)
 
-- Vite
-- TypeScript
-- React
-- shadcn-ui
-- Tailwind CSS
+## 🚀 Performance
 
-## How can I deploy this project?
+- ✅ Lazy loading de imagens
+- ✅ Code splitting automático
+- ✅ Otimização de assets
+- ✅ Pré-carregamento de imagens críticas
+- ✅ Compressão de imagens
 
-Simply open [Lovable](https://lovable.dev/projects/5336b271-60f3-463c-b657-ae1f55aa07ff) and click on Share -> Publish.
+## 🔧 Scripts Disponíveis
 
-## Can I connect a custom domain to my Lovable project?
+- `npm run dev` - Servidor de desenvolvimento
+- `npm run build` - Build padrão
+- `npm run build:prod` - Build otimizado para produção
+- `npm run preview` - Preview do build
+- `npm run lint` - Verificação de código
+- `npm run type-check` - Verificação de tipos TypeScript
 
-Yes, you can!
+## 📞 Contato
 
-To connect a domain, navigate to Project > Settings > Domains and click Connect Domain.
-
-Read more here: [Setting up a custom domain](https://docs.lovable.dev/tips-tricks/custom-domain#step-by-step-guide)
+Para suporte técnico ou dúvidas sobre o deploy, entre em contato com a equipe de desenvolvimento.

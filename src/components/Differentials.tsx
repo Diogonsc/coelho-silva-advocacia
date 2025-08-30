@@ -35,74 +35,74 @@ const Differentials = () => {
   ];
 
   return (
-    <section id="diferenciais" className="py-24 bg-background">
+    <section id="diferenciais" className="py-16 md:py-24 bg-background">
       <div className="container mx-auto px-4">
         <div className="max-w-6xl mx-auto">
           {/* Header */}
-          <div className="text-center mb-16 animate-fade-in">
-            <h2 className="text-4xl md:text-5xl font-serif font-bold text-foreground mb-6">
+          <div className="text-center mb-12 md:mb-16 animate-fade-in">
+            <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-foreground mb-4 md:mb-6">
               Nossos Diferenciais
             </h2>
-            <div className="w-24 h-1 bg-primary mx-auto mb-6"></div>
-            <p className="text-xl text-muted-foreground max-w-3xl mx-auto text-balance">
+            <div className="w-20 md:w-24 h-1 bg-primary mx-auto mb-4 md:mb-6 rounded-full"></div>
+            <p className="text-base md:text-lg lg:text-xl text-muted-foreground max-w-3xl mx-auto text-balance leading-relaxed px-4 md:px-0">
               O que nos torna únicos na defesa dos seus direitos e na condução do seu processo criminal
             </p>
           </div>
 
           {/* Differentials Grid */}
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
             {differentials.map((differential, index) => (
               <div
                 key={differential.title}
-                className="group p-8 rounded-xl border border-border/50 bg-gradient-to-br from-card to-accent/30 hover:shadow-xl hover:border-primary/20 transition-all duration-300 animate-scale-in"
+                className="group p-6 md:p-8 rounded-xl border border-border/50 bg-gradient-to-br from-card to-accent/30 hover:shadow-xl hover:border-primary/20 transition-all duration-300 animate-scale-in"
                 style={{ animationDelay: `${index * 0.1}s` }}
               >
                 {/* Icon */}
-                <div className="w-16 h-16 bg-primary/10 rounded-full flex items-center justify-center mb-6 group-hover:bg-primary/20 group-hover:scale-110 transition-all duration-300">
-                  <differential.icon className="h-8 w-8 text-primary" />
+                <div className="w-12 h-12 md:w-16 md:h-16 bg-primary/10 rounded-full flex items-center justify-center mb-4 md:mb-6 group-hover:bg-primary/20 group-hover:scale-110 transition-all duration-300">
+                  <differential.icon className="h-6 w-6 md:h-8 md:w-8 text-primary" />
                 </div>
 
                 {/* Content */}
-                <h3 className="text-xl font-serif font-bold text-foreground mb-4 group-hover:text-primary transition-colors">
+                <h3 className="text-lg md:text-xl font-bold text-foreground mb-3 md:mb-4 group-hover:text-primary transition-colors">
                   {differential.title}
                 </h3>
                 
-                <p className="text-muted-foreground leading-relaxed">
+                <p className="text-sm md:text-base text-muted-foreground leading-relaxed">
                   {differential.description}
                 </p>
 
                 {/* Decorative Element */}
-                <div className="mt-6 w-12 h-0.5 bg-gradient-to-r from-primary/50 to-transparent group-hover:from-primary group-hover:to-primary/50 transition-all duration-300"></div>
+                <div className="mt-4 md:mt-6 w-10 md:w-12 h-0.5 bg-gradient-to-r from-primary/50 to-transparent group-hover:from-primary group-hover:to-primary/50 transition-all duration-300"></div>
               </div>
             ))}
           </div>
 
           {/* Trust Statement */}
-          <div className="mt-20">
-            <div className="bg-gradient-to-r from-primary/5 via-trust/5 to-primary/5 border border-primary/20 rounded-2xl p-12 text-center">
-              <h3 className="text-3xl font-serif font-bold text-foreground mb-6">
+          <div className="mt-16 md:mt-20">
+            <div className="bg-gradient-to-r from-primary/5 via-trust/5 to-primary/5 border border-primary/20 rounded-2xl p-6 md:p-8 lg:p-12 text-center">
+              <h3 className="text-xl md:text-2xl lg:text-3xl font-bold text-foreground mb-4 md:mb-6">
                 Compromisso com a Excelência
               </h3>
-              <p className="text-lg text-muted-foreground max-w-4xl mx-auto mb-8 leading-relaxed">
+              <p className="text-base md:text-lg text-muted-foreground max-w-4xl mx-auto mb-6 md:mb-8 leading-relaxed">
                 Nossa reputação foi construída ao longo de anos de dedicação, ética profissional 
                 e resultados efetivos. Cada cliente é tratado com o respeito e a atenção que merece, 
                 porque entendemos que por trás de cada processo existe uma pessoa e uma história.
               </p>
               
-              <div className="flex flex-col sm:flex-row justify-center items-center gap-8 text-foreground/80">
+              <div className="flex flex-col sm:flex-row justify-center items-center gap-4 md:gap-8 text-foreground/80">
                 <div className="flex items-center gap-2">
-                  <Shield className="h-5 w-5 text-primary" />
-                  <span className="font-medium">Ética Profissional</span>
+                  <Shield className="h-4 w-4 md:h-5 md:w-5 text-primary" />
+                  <span className="font-medium text-sm md:text-base">Ética Profissional</span>
                 </div>
                 <div className="hidden sm:block w-px h-6 bg-primary/30"></div>
                 <div className="flex items-center gap-2">
-                  <Heart className="h-5 w-5 text-primary" />
-                  <span className="font-medium">Atendimento Humano</span>
+                  <Heart className="h-4 w-4 md:h-5 md:w-5 text-primary" />
+                  <span className="font-medium text-sm md:text-base">Atendimento Humano</span>
                 </div>
                 <div className="hidden sm:block w-px h-6 bg-primary/30"></div>
                 <div className="flex items-center gap-2">
-                  <FileCheck className="h-5 w-5 text-primary" />
-                  <span className="font-medium">Resultados Comprovados</span>
+                  <FileCheck className="h-4 w-4 md:h-5 md:w-5 text-primary" />
+                  <span className="font-medium text-sm md:text-base">Resultados Comprovados</span>
                 </div>
               </div>
             </div>
