@@ -362,11 +362,11 @@ const Team = () => {
 
                       {/* Contact */}
                       <div className="border-t border-border/50 pt-1 md:pt-4">
-                        <div className="flex justify-center gap-1 md:gap-3">
+                        <div className="flex justify-center items-center gap-2 md:gap-3 px-4 min-h-[3rem] md:min-h-[4rem]">
                           <Button
                             variant="ghost"
                             size="sm"
-                            className="text-muted-foreground hover:text-primary h-6 w-6 md:h-10 md:w-10 p-0"
+                            className="text-muted-foreground hover:text-primary h-8 w-8 md:h-10 md:w-10 p-0 flex-1 max-w-12"
                             onClick={() =>
                               window.open(`tel:${member.contact.phone}`)
                             }
@@ -377,7 +377,7 @@ const Team = () => {
                           <Button
                             variant="ghost"
                             size="sm"
-                            className="text-muted-foreground hover:text-primary h-6 w-6 md:h-10 md:w-10 p-0"
+                            className="text-muted-foreground hover:text-primary h-8 w-8 md:h-10 md:w-10 p-0 flex-1 max-w-12"
                             onClick={() =>
                               window.open(`mailto:${member.contact.email}`)
                             }
@@ -388,7 +388,7 @@ const Team = () => {
                           <Button
                             variant="ghost"
                             size="sm"
-                            className="text-muted-foreground hover:text-primary h-6 w-6 md:h-10 md:w-10 p-0"
+                            className="text-muted-foreground hover:text-primary h-8 w-8 md:h-10 md:w-10 p-0 flex-1 max-w-12"
                             onClick={() =>
                               window.open(member.contact.linkedin, "_blank")
                             }
@@ -399,7 +399,7 @@ const Team = () => {
                           <Button
                             variant="ghost"
                             size="sm"
-                            className="text-muted-foreground hover:text-primary h-6 w-6 md:h-10 md:w-10 p-0"
+                            className="text-muted-foreground hover:text-primary h-8 w-8 md:h-10 md:w-10 p-0 flex-1 max-w-12"
                             onClick={() =>
                               window.open(member.contact.instagram, "_blank")
                             }

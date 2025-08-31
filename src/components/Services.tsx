@@ -351,7 +351,7 @@ const Services = () => {
                       Saiba Mais
                     </Button>
                   </DialogTrigger>
-                  <DialogContent className="max-w-4xl max-h-[90vh] overflow-hidden p-0 flex flex-col">
+                  <DialogContent className="max-w-4xl max-h-[90vh] sm:max-h-[90vh] h-full sm:h-auto overflow-hidden p-0 flex flex-col">
                     {/* Header Fixo */}
                     <DialogHeader className="flex-shrink-0 bg-background z-20 p-4 md:p-6 border-b">
                       <div className="flex items-start justify-between">
@@ -463,7 +463,7 @@ const Services = () => {
                             onClick={handleAgendarConsulta}
                             variant="secondary"
                             size="lg"
-                            className="flex-1 sm:flex-none text-sm md:text-base"
+                            className="flex-1 sm:flex-none text-sm md:text-base py-4"
                           >
                             <Calendar className="w-4 h-4 mr-2" />
                             Agendar Consulta
@@ -472,7 +472,7 @@ const Services = () => {
                             onClick={handleEnviarMensagem}
                             variant="secondary"
                             size="lg"
-                            className="flex-1 sm:flex-none border-white text-primary hover:bg-white hover:text-primary text-sm md:text-base"
+                            className="flex-1 sm:flex-none border-white text-primary hover:bg-white hover:text-primary text-sm md:text-base py-4"
                           >
                             <MessageSquare className="w-4 h-4 mr-2" />
                             Enviar Mensagem
