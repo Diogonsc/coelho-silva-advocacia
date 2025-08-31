@@ -17,6 +17,7 @@ import {
   AccordionTrigger,
 } from "@/components/ui/accordion";
 import { Button } from "@/components/ui/button";
+import { Card } from "@/components/ui/card";
 
 const Services = () => {
   const [selectedService, setSelectedService] = useState<typeof services[0] | null>(null);
@@ -310,9 +311,9 @@ const Services = () => {
           {/* Services Grid */}
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
             {services.map((service, index) => (
-              <div
+              <Card
                 key={service.title}
-                className="card-service p-6 md:p-8 rounded-xl hover:scale-105 transition-all duration-300 animate-scale-in relative group"
+                className="card-service p-6 border border-border/90 md:p-8 rounded-xl hover:scale-105 transition-all duration-300 animate-scale-in relative group"
                 style={{ animationDelay: `${index * 0.1}s` }}
               >
                 {/* Icon */}
@@ -484,7 +485,7 @@ const Services = () => {
 
                 {/* Hover Effect */}
                 <div className="absolute inset-0 bg-gradient-to-br from-primary/5 to-trust/5 rounded-xl opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none"></div>
-              </div>
+              </Card>
             ))}
           </div>
 

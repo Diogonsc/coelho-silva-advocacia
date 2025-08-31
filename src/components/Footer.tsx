@@ -1,6 +1,6 @@
 import { MapPin, Phone, Mail, Clock } from 'lucide-react';
 import cityFooter from '@/assets/city-footer.webp';
-import logo from '@/assets/logotipo.jpg';
+import logo from '@/assets/logotipo.webp';
 import ImageWithFallback from '@/components/ui/image-with-fallback';
 
 const Footer = () => {

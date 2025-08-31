@@ -10,8 +10,8 @@ export const preloadImage = (src: string): Promise<void> => {
 
 // Lista de imagens críticas para pré-carregamento
 export const criticalImages = [
-  '/src/assets/hero-law-office.jpg',
-  '/src/assets/logotipo.jpg',
+  '/src/assets/hero-law-office.webp',
+  '/src/assets/logotipo.webp',
 ];
 
 // Pré-carregar imagens críticas

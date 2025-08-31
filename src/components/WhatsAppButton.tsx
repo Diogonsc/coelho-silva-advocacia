@@ -3,7 +3,7 @@ import { FaWhatsapp, FaTimes } from 'react-icons/fa';
 import { Card, CardContent } from '@/components/ui/card';
 import { openWhatsApp } from '@/lib/utils';
 import { useGtag } from '@/hooks/use-gtag';
-import logo from '@/assets/logotipo.jpg';
+import logo from '@/assets/logotipo.webp';
 import ImageWithFallback from '@/components/ui/image-with-fallback';
 
 const WhatsAppButton = () => {

@@ -2,7 +2,7 @@ import { useState, useEffect } from 'react';
 import { Menu, Phone, ChevronRight, Clock, Mail } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Sheet, SheetContent, SheetTrigger } from '@/components/ui/sheet';
-import logotipo from '@/assets/logotipo.jpg';
+import logotipo from '@/assets/logotipo.webp';
 import ImageWithFallback from '@/components/ui/image-with-fallback';
 
 const Navigation = () => {

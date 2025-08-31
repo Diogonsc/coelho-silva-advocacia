@@ -1,6 +1,6 @@
 import { Button } from '@/components/ui/button';
 import { MessageCircle, Calendar, Shield, Award, Clock } from 'lucide-react';
-import heroImage from '@/assets/hero-law-office.jpg';
+import heroImage from '@/assets/hero-law-office.webp';
 import ImageWithFallback from '@/components/ui/image-with-fallback';
 
 const Hero = () => {

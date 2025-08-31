@@ -1,4 +1,5 @@
 import { Heart, Shield, Users, Clock, FileCheck, Lightbulb } from 'lucide-react';
+import { Card } from '@/components/ui/card';
 
 const Differentials = () => {
   const differentials = [
@@ -52,9 +53,9 @@ const Differentials = () => {
           {/* Differentials Grid */}
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
             {differentials.map((differential, index) => (
-              <div
+              <Card
                 key={differential.title}
-                className="group p-6 md:p-8 rounded-xl border border-border/50 bg-gradient-to-br from-card to-accent/30 hover:shadow-xl hover:border-primary/20 transition-all duration-300 animate-scale-in"
+                className="group p-6 md:p-8 rounded-xl border border-border/90 bg-gradient-to-br from-card to-accent/30 hover:shadow-xl hover:border-primary/20 transition-all duration-300 animate-scale-in"
                 style={{ animationDelay: `${index * 0.1}s` }}
               >
                 {/* Icon */}
@@ -73,7 +74,7 @@ const Differentials = () => {
 
                 {/* Decorative Element */}
                 <div className="mt-4 md:mt-6 w-10 md:w-12 h-0.5 bg-gradient-to-r from-primary/50 to-transparent group-hover:from-primary group-hover:to-primary/50 transition-all duration-300"></div>
-              </div>
+              </Card>
             ))}
           </div>
 

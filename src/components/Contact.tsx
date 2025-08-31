@@ -4,6 +4,7 @@ import { Input } from '@/components/ui/input';
 import { Textarea } from '@/components/ui/textarea';
 import { MapPin, Phone, Mail, Clock, MessageCircle } from 'lucide-react';
 import { useToast } from '@/hooks/use-toast';
+import { Card } from "@/components/ui/card";
 
 const Contact = () => {
   const { toast } = useToast();
@@ -83,7 +84,7 @@ const Contact = () => {
 
           <div className="grid lg:grid-cols-2 gap-16">
             {/* Contact Info */}
-            <div className="space-y-8 animate-slide-in-left">
+            <Card className="space-y-8 animate-slide-in-left p-6 md:p-8 hover-lift group border border-border/90">
               <div>
                 <h3 className="text-2xl md:text-3xl font-bold text-foreground mb-4 md:mb-6">
                   Fale Conosco
@@ -96,7 +97,7 @@ const Contact = () => {
 
               {/* Contact Details */}
               <div className="space-y-4">
-                <div className="flex items-center gap-3 p-4 rounded-xl border border-border/50 hover:border-primary/30 transition-colors hover-lift">
+                <div className="flex items-center gap-3 p-4 rounded-xl border border-border/50 hover:border-primary/30">
                   <div className="w-12 h-12 bg-primary/10 rounded-full flex items-center justify-center flex-shrink-0">
                     <MapPin className="h-6 w-6 text-primary" />
                   </div>
@@ -108,7 +109,7 @@ const Contact = () => {
                   </div>
                 </div>
 
-                <div className="flex items-center gap-3 p-4 rounded-xl border border-border/50 hover:border-primary/30 transition-colors hover-lift">
+                <div className="flex items-center gap-3 p-4 rounded-xl border border-border/50 hover:border-primary/30">
                   <div className="w-12 h-12 bg-primary/10 rounded-full flex items-center justify-center flex-shrink-0">
                     <Phone className="h-6 w-6 text-primary" />
                   </div>
@@ -120,7 +121,7 @@ const Contact = () => {
                   </div>
                 </div>
 
-                <div className="flex items-center gap-3 p-4 rounded-xl border border-border/50 hover:border-primary/30 transition-colors hover-lift">
+                <div className="flex items-center gap-3 p-4 rounded-xl border border-border/50 hover:border-primary/30">
                   <div className="w-12 h-12 bg-primary/10 rounded-full flex items-center justify-center flex-shrink-0">
                     <Mail className="h-6 w-6 text-primary" />
                   </div>
@@ -132,7 +133,7 @@ const Contact = () => {
                   </div>
                 </div>
 
-                <div className="flex items-center gap-3 p-4 rounded-xl border border-border/50 hover:border-primary/30 transition-colors hover-lift">
+                <div className="flex items-center gap-3 p-4 rounded-xl border border-border/50 hover:border-primary/30">
                   <div className="w-12 h-12 bg-primary/10 rounded-full flex items-center justify-center flex-shrink-0">
                     <Clock className="h-6 w-6 text-primary" />
                   </div>
@@ -145,11 +146,11 @@ const Contact = () => {
                   </div>
                 </div>
               </div>
-            </div>
+            </Card>
 
             {/* Contact Form */}
-            <div className="animate-slide-in-right">
-              <div className="card-elegant p-6 md:p-8 rounded-2xl">
+            <Card className="animate-slide-in-right p-6 md:p-8  hover-lift group border border-border/90">
+              <div className="">
                 <h3 className="text-xl md:text-2xl font-bold text-foreground mb-4 md:mb-6">
                   Envie sua Mensagem
                 </h3>
@@ -248,7 +249,7 @@ const Contact = () => {
                   </div>
                 </form>
               </div>
-            </div>
+            </Card>
           </div>
         </div>
       </div>
