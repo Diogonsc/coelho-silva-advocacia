@@ -180,6 +180,17 @@
       hsl(0 0% 100%) 100%);
   }
   
+  /* Hero Section Spacing Fix */
+  #hero {
+    padding-top: 4rem; /* 64px - compensa a altura da navegação mobile */
+  }
+  
+  @media (min-width: 1024px) {
+    #hero {
+      padding-top: 5rem; /* 80px - compensa a altura da navegação desktop */
+    }
+  }
+  
   /* Enhanced Animations */
   .animate-slide-up {
     animation: slideUp 0.8s var(--transition-smooth) forwards;
@@ -294,6 +305,16 @@
       transparent 0%, 
       hsl(var(--primary) / 0.05) 50%,
       hsl(var(--primary) / 0.1) 100%);
+  }
+  
+  /* Navigation Z-Index Fix */
+  nav[role="navigation"] {
+    z-index: 50;
+  }
+  
+  /* Hero Content Z-Index */
+  #hero .relative.z-10 {
+    z-index: 10;
   }
   
   .carousel-nav-button:hover {

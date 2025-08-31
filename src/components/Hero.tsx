@@ -22,7 +22,7 @@ const Hero = () => {
   ];
 
   return (
-    <section id="hero" className="relative min-h-screen flex items-center justify-center overflow-hidde">
+    <section id="hero" className="relative min-h-screen flex items-center justify-center overflow-hidden">
       {/* Background Image with Enhanced Overlay */}
       <div className="absolute inset-0 z-0">
         <ImageWithFallback
@@ -35,7 +35,7 @@ const Hero = () => {
       </div>
 
       {/* Content */}
-      <div className="relative z-10 container mx-auto px-4 text-center text-white ">
+      <div className="relative z-10 container mx-auto px-4 text-center text-white py-8 lg:py-12">
         <div className="max-w-5xl mx-auto">
           {/* Logo/Brand */}
           <div className="mb-8 md:mb-12 animate-fade-in">
